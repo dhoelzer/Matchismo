@@ -16,6 +16,7 @@
 
 @property (readwrite, nonatomic) int score;
 @property (readwrite, nonatomic) NSMutableArray *cards;
+@property (readwrite, nonatomic) NSString *lastMatchStatus;
 
 @end
 
@@ -24,6 +25,7 @@
 -(void)flipCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
+    self.lastMatchStatus = nil;
     if(card && !card.isUnplayable)
     {
         
@@ -38,11 +40,13 @@
                         card.unplayable = YES;
                         otherCard.unplayable = YES;
                         self.score += matchScore * MATCH_BONUS;
+                        self.lastMatchStatus = [NSString stringWithFormat:@"Matched for %d points!", (matchScore * MATCH_BONUS)];
                     }
                     else
                     {
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
+                        self.lastMatchStatus = [NSString stringWithFormat:@"Doh! Lost %d points!", MISMATCH_PENALTY];
                     }
                     break;
                 }

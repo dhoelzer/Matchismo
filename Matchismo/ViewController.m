@@ -69,6 +69,7 @@
     }
     [self.numberOfFlips setText:[NSString stringWithFormat:@"Flips: %u", self.timesFlipped]];
     [self.scoreLabel setText:[NSString stringWithFormat:@"Score: %d", [self.game score]]];
+    [self.statusLabel setText:self.game.lastMatchStatus];
     
 }
 @end

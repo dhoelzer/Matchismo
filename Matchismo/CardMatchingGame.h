@@ -17,7 +17,7 @@
 
 #pragma mark Properties
 @property (readonly, nonatomic) int score;
-
+@property (readonly, nonatomic) NSString *lastMatchStatus;
 #pragma mark Designated Initializer
 
 -(id)initWithCardCount:(NSUInteger)count
