@@ -10,4 +10,8 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)flipCard:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfFlips;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end
