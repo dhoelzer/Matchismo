@@ -2,5 +2,13 @@ This is a possible solution to the Matchismo assignment for the Stanford CS193P
 IOS programming course.
 
 This solution is slightly different from what's done in the course in that it
-uses a card-back graphic.
+uses a card-back graphic.  It also corrects an error that exists in the sample
+code given during the class with regard to a possibly array index out of bounds
+issue.
+
+It is also slightly different in that I prefer to instantiate my iVars explicitly
+in some cases, like the game model, rather than lazily.  If, for some reason,
+your instantiation fails, it's a pain to track down the fact that your entire
+array is nil because it was never created because you never actually called
+the getter.
 
