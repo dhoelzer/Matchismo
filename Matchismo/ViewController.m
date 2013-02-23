@@ -55,7 +55,10 @@
     for (UIButton *button in self.cardButtons) {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:button]];
         [button setTitle:[card contents] forState:UIControlStateSelected];
+        [button setTitle:[card contents] forState:(UIControlStateSelected|UIControlStateDisabled)];
         [button setSelected:[card isFaceUp]];
+        [button setEnabled:![card isUnplayable]];
+        button.alpha = (card.isUnplayable ? 0.5 : 1);
         if (![card isFaceUp]) {
             [button setImage:[UIImage imageNamed:@"cardBack.jpeg"] forState:UIControlStateNormal];
         }
